@@ -20,16 +20,18 @@ export default class TimerView extends React.Component {
 
   startTimer(){
     this.setState({remainingTime: this.state.selectTime })
+
     this.state.timer = setInterval( () => {
       this.setState({remainingTime: this.state.remainingTime - 1 })
-      if(this.state.remainingTime <= 0){
-        clearInterval(this.state.timer)
-        this.setState({timer: null})
-      }
+      if(this.state.remainingTime <= 0){ this.clearTimer() }
     },1000)
   }
 
   stopTimer(){
+    this.clearTimer()
+  }
+
+  clearTimer(){
     clearInterval(this.state.timer)
     this.setState({timer: null})
   }
