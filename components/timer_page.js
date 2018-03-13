@@ -5,7 +5,7 @@ import { Button, Text, Header } from 'react-native-elements'
 export default class TimerView extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { time: null }
+    this.state = { time: 'off' }
   }
   render() {
     var list = []
@@ -21,6 +21,7 @@ export default class TimerView extends React.Component {
         <Picker
           selectedValue={this.state.time}
           onValueChange={(itemValue, itemIndex) => this.setState({time: itemValue})}>
+          <Picker.Item label='OFF' value='off' />
           { list }
         </Picker>
         <Text> {this.state.time} </Text>
