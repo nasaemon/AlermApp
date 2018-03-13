@@ -9,7 +9,7 @@ export default class App extends React.Component {
         <TimerView />
       </View>
     )
-  }
+ }
 }
 
 const styles = StyleSheet.create({

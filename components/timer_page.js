@@ -1,5 +1,12 @@
 import React from 'react'
-import { Button, StyleSheet, View, Picker } from 'react-native'
+import {
+  Button,
+  StyleSheet,
+  View,
+  Picker,
+  Timers,
+} from 'react-native'
+
 import { Text, Header } from 'react-native-elements'
 
 export default class TimerView extends React.Component {
