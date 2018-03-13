@@ -14,7 +14,8 @@ export default class TimerView extends React.Component {
     super(props)
     this.state = {
       selectTime: 0,
-      remainingTime: 0
+      remainingTime: 0,
+      timer: null,
     }
   }
 
