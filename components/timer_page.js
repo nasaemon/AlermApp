@@ -22,12 +22,16 @@ export default class TimerView extends React.Component {
     this.setState({remainingTime: this.state.selectTime })
     this.state.timer = setInterval( () => {
       this.setState({remainingTime: this.state.remainingTime - 1 })
-      if(this.state.remainingTime <= 0){ clearInterval(this.state.timer) }
+      if(this.state.remainingTime <= 0){
+        clearInterval(this.state.timer)
+        this.setState({timer: null})
+      }
     },1000)
   }
 
   stopTimer(){
     clearInterval(this.state.timer)
+    this.setState({timer: null})
   }
 
   render() {
@@ -48,12 +52,14 @@ export default class TimerView extends React.Component {
           { list }
         </Picker>
 
-        <Button title={'Start Timer!!'} onPress={ () => this.startTimer() } />
-        <Button title={'Stop Timer!!'} onPress={ () => this.stopTimer() } />
+        { !this.state.timer ?
+        <Button title={'Start Timer!!'} onPress={ () => this.startTimer() } /> :
+        <Button title={'Stop Timer!!'} onPress={ () => this.stopTimer() } /> }
 
         <Text h1 style={ {alignItems: 'center'} }>{this.state.selectTime}</Text>
         <Text h1 style={ {alignItems: 'center'} }>{this.state.remainingTime}</Text>
         <Text h1 style={ {alignItems: 'center'} }>{typeof(this.state.remainingTime)}</Text>
+        <Text>{ this.state.timer }</Text>
       </View>
     )
   }
