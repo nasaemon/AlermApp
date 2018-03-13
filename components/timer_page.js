@@ -1,4 +1,5 @@
 import React from 'react'
+import { Text, Header } from 'react-native-elements'
 import {
   Button,
   StyleSheet,
@@ -6,8 +7,6 @@ import {
   Picker,
   Timers,
 } from 'react-native'
-
-import { Text, Header } from 'react-native-elements'
 
 export default class TimerView extends React.Component {
   constructor(props) {
@@ -22,13 +21,13 @@ export default class TimerView extends React.Component {
   startTimer(){
     this.setState({remainingTime: this.state.selectTime })
     this.state.timer = setInterval( () => {
-    this.setState({remainingTime: this.state.remainingTime - 1 })
+      this.setState({remainingTime: this.state.remainingTime - 1 })
     },1000)
   }
+
   stopTimer(){
     clearInterval(this.state.timer)
   }
-
 
   render() {
     var list = []
@@ -58,4 +57,3 @@ export default class TimerView extends React.Component {
     )
   }
 }
-
