@@ -47,6 +47,10 @@ export default class TimerView extends React.Component {
 
         <Button title={'Start Timer!!'} onPress={ () => this.startTimer() } />
         <Button title={'Stop Timer!!'} onPress={ () => this.stopTimer() } />
+
+        <Text h1 style={ {alignItems: 'center'} }>{this.state.selectTime}</Text>
+        <Text h1 style={ {alignItems: 'center'} }>{this.state.remainingTime}</Text>
+        <Text h1 style={ {alignItems: 'center'} }>{typeof(this.state.remainingTime)}</Text>
       </View>
     )
   }
