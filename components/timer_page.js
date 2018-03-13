@@ -22,6 +22,7 @@ export default class TimerView extends React.Component {
     this.setState({remainingTime: this.state.selectTime })
     this.state.timer = setInterval( () => {
       this.setState({remainingTime: this.state.remainingTime - 1 })
+      if(this.state.remainingTime <= 0){ clearInterval(this.state.timer) }
     },1000)
   }
 
