@@ -12,7 +12,10 @@ import { Text, Header } from 'react-native-elements'
 export default class TimerView extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { time: 'off' }
+    this.state = {
+      selectTime: 0,
+      remainingTime: 0
+    }
   }
 
   startTimer(){}
