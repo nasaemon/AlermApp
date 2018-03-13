@@ -39,7 +39,7 @@ export default class TimerView extends React.Component {
   render() {
     var list = []
     for( const i=1; i<=10; i++ ){
-      list.push( <Picker.Item label= {i+'時間'} value={i*60*60} key={i}/> )
+      list.push( <Picker.Item label= {i+'時間'} value={i*60*60*1000} key={i}/> )
     }
 
     return(
