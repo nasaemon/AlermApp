@@ -36,15 +36,15 @@ export default class TimerView extends React.Component {
     this.setState({timer: null})
   }
 
-  startSound() {
-    const soundObject = new Expo.Audio.Sound()
+  startSound(){
     try {
-      soundObject.loadAsync(require('../assets/sounds/hello.mp3'))
-      soundObject.playAsync()
+      const { soundObject, status } =  Expo.Audio.Sound.create(
+        require('../assets/sounds/hello.mp3'),
+        { shouldPlay: true }
+      )
       // Your sound is playing!
     } catch (error) {
-        // An error occurred!
-        return(<Text>音は鳴りません</Text>)
+      // An error occurred!
     }
   }
 
