@@ -1,11 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Header } from 'react-native-elements'
 import TimerView from './components/timer_page'
 
 export default class App extends React.Component {
   render() {
     return (
       <View style= { styles.container }>
+        <Header
+        centerComponent={{ text: 'Alerm APP', style: { color: '#fff' } } }
+        />
         <TimerView />
       </View>
     )

@@ -44,9 +44,6 @@ export default class TimerView extends React.Component {
 
     return(
       <View>
-        <Header
-        centerComponent={{ text: 'Alerm APP', style: { color: '#fff' } } }
-        />
         <Picker
           selectedValue={this.state.selectTime}
           onValueChange={(itemValue, itemIndex) => this.setState({selectTime: itemValue})}>
