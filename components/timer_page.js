@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, Header } from 'react-native-elements'
+import TimerSound from './sound'
 import {
   Button,
   StyleSheet,
@@ -36,18 +37,6 @@ export default class TimerView extends React.Component {
     this.setState({timer: null})
   }
 
-  startSound(){
-    try {
-      const { soundObject, status } =  Expo.Audio.Sound.create(
-        require('../assets/sounds/hello.mp3'),
-        { shouldPlay: true }
-      )
-      // Your sound is playing!
-    } catch (error) {
-      // An error occurred!
-    }
-  }
-
   render() {
     var list = []
     for( const i=1; i<=10; i++ ){
@@ -70,7 +59,7 @@ export default class TimerView extends React.Component {
 
         <Text h1 style={ {alignItems: 'center'} }>残り秒数: {this.state.remainingTime}</Text>
 
-        <Button title='Run Sound!!' onPress={ () => this.startSound() } />
+        <TimerSound />
       </View>
     )
   }
