@@ -36,6 +36,18 @@ export default class TimerView extends React.Component {
     this.setState({timer: null})
   }
 
+  startSound() {
+    const soundObject = new Expo.Audio.Sound()
+    try {
+      soundObject.loadAsync(require('../assets/sounds/hello.mp3'))
+      soundObject.playAsync()
+      // Your sound is playing!
+    } catch (error) {
+        // An error occurred!
+        return(<Text>音は鳴りません</Text>)
+    }
+  }
+
   render() {
     var list = []
     for( const i=1; i<=10; i++ ){
@@ -57,6 +69,8 @@ export default class TimerView extends React.Component {
         }
 
         <Text h1 style={ {alignItems: 'center'} }>残り秒数: {this.state.remainingTime}</Text>
+
+        <Button title='Run Sound!!' onPress={ () => this.startSound() } />
       </View>
     )
   }
